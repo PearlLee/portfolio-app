@@ -115,7 +115,7 @@ function Card(props: ICardProps) {
                 {props.like_users.map((item, index) => (
                   <span key={index}>
                     {item}
-                    {item.length - 1 === index && ','}
+                    {index < item.length && ','}
                   </span>
                 ))}
               </dd>

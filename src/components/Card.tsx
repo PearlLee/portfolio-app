@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, TextField, IconButton, Menu, MenuItem } from '@material-ui/core';
-import { Apple, MoreVert, Favorite } from '@material-ui/icons';
+import { IconButton, Menu, MenuItem } from '@material-ui/core';
+import { MoreVert, Favorite } from '@material-ui/icons';
 import BlindText from './BlindText';
 import styles from './style/style.module.scss';
 import classNames from 'classnames/bind';
@@ -32,18 +32,6 @@ function Card(props: ICardProps) {
 
   return (
     <>
-      <Button variant="contained" color="primary" className={style('aa')}>
-        <Apple />
-        hello world
-      </Button>
-      <hr />
-      <TextField
-        label="Multiline Placeholder"
-        placeholder="Placeholder"
-        multiline
-        variant="outlined"
-      />
-      <hr />
       <article className={style('card')}>
         <header>
           <dl>

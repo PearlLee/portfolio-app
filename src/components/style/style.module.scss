@@ -13,7 +13,7 @@
 .card {
 
     &:not(:first-child) {
-        margin-top:space(2);
+        margin-top:fontSize(2);
     }
 
     width:60vw;
@@ -21,20 +21,16 @@
     margin:0 auto;
 
     background-color:#fff;
-    border-radius:space(.5);
+    border-radius:fontSize(.5);
     border:1px solid rgba(grey, .5);
-    box-shadow:0 0 space(1) grey;
+    box-shadow:0 0 fontSize(1) grey;
     box-sizing:border-box;
-
-    &:hover .photo > img {
-        transform:scale(1.1);
-    }
 
     header {
         display:flex;
         align-items:center;
-        justify-content:space-between;
-        padding:space(.5) space(.5) space(.5) space(1);
+        justify-content:fontSize-between;
+        padding:fontSize(.5) fontSize(.5) fontSize(.5) fontSize(1);
 
         .menu {
             button {
@@ -72,7 +68,7 @@
     }
 
     .content {
-        padding:0 0 space(1);
+        padding:0 0 fontSize(1);
 
         .photo {
             display:block;
@@ -83,31 +79,29 @@
             img {
                 display:block;
                 width:100%;
-    
-                transition:transform .4s ease-in-out;
             }
 
             & + dl {
-                margin-top:space(1);
+                margin-top:fontSize(1);
             }
         }
 
         dl {
-            padding:0 space(1);
+            padding:0 fontSize(1);
 
             &.info {
-                margin-bottom:space(1.5);
+                margin-bottom:fontSize(1.5);
 
                 color:grey;
                 line-height:1.5em;
             }
 
             &.hashtags {
-                margin-left:-.5em;
-
-                a {
+                a, button {
                     padding:.2em .5em;
 
+                    background-color:transparent;
+                    border:none;
                     border-radius:1em;
                     color:inherit;
                     cursor:pointer;
@@ -119,6 +113,35 @@
 
                     &:hover {
                         background-color:lightgrey;
+                    }
+                }
+            }
+
+            &.like {
+                display:flex;
+                align-items:center;
+                flex-wrap:wrap;
+                justify-content:center;
+                position:relative;
+                margin-top:fontSize(.5);
+
+                $iconMargin:(iconSize(-.5) - fontSize(.3));
+                dt {
+                    margin:0 fontSize(.3) 0 $iconMargin;
+                    
+                    & + dd {
+                        font-weight:700;
+                    }
+                }
+                dd.likeUsers {
+                    width:100%;
+                    margin-top:fontSize(.3);
+
+                    color:grey;
+                    font-size:fontSize(.9);
+
+                    &:after {
+                        content:'님이 좋아합니다.';
                     }
                 }
             }

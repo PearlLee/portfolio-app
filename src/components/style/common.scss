@@ -1,3 +1,6 @@
-@function space($val) {
+@function fontSize($val) {
   @return (14px * $val);
+}
+@function iconSize($val) {
+  @return (24px * $val);
 }

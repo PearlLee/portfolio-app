@@ -8,7 +8,7 @@ interface ITimeProps {
 
 function Time(props: ITimeProps) {
   return (
-    <Moment local toNow titleFormat="YYYY-MM-DD" withTitle>
+    <Moment local fromNow titleFormat="YYYY-MM-DD" withTitle>
       {props.dateToFormat}
     </Moment>
   );

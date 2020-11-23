@@ -24,7 +24,7 @@ function App() {
       <section className="container">
         {data.map((item, index) => (
           <Card
-            key={index}
+            key={index.toString()}
             id={item.id}
             user_name={item.user_name}
             message={item.message}

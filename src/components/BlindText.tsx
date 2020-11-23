@@ -1,17 +1,13 @@
-import React from 'react'
-import styles from './style/style.module.scss';
-import classNames from 'classnames/bind';
-
-const style = classNames.bind(styles);
+import React from 'react';
 
 interface IBlindProp {
-    children: string;
+  children: React.ReactElement<HTMLElement>;
 }
 
-function Blind(props: IBlindProp) {
-    const { children } = props;
+function BlindText(props: IBlindProp) {
+  const children = props.children;
 
-    return (<span className={style("blind")}>{children}</span>);
+  return <>{children}</>;
 }
 
-export default Blind;
+export default BlindText;

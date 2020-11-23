@@ -4,10 +4,12 @@
     font-weight:700;
 }
 
-.blind {
-    position:absolute;
-
-    font-size:0;
+:global .guideText[aria-hidden] {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 .card {
@@ -29,7 +31,7 @@
     header {
         display:flex;
         align-items:center;
-        justify-content:fontSize-between;
+        justify-content:space-between;
         padding:fontSize(.5) fontSize(.5) fontSize(.5) fontSize(1);
 
         .menu {
@@ -71,19 +73,30 @@
         padding:0 0 fontSize(1);
 
         .photo {
-            display:block;
-            overflow:hidden;
+            height:50vw;
+            max-height:420px;
 
             background-color:lightgrey;
 
             img {
                 display:block;
                 width:100%;
+                height:100%;
+                object-fit:cover;
             }
 
             & + dl {
                 margin-top:fontSize(1);
             }
+
+            :global .swiper-pagination-bullet-active {
+                background-color:white;
+            }
+        }
+        span.photo {
+            display:flex;
+            justify-content:center;
+            align-items:center;
         }
 
         dl {
@@ -123,7 +136,7 @@
                 flex-wrap:wrap;
                 justify-content:center;
                 position:relative;
-                margin-top:fontSize(.5);
+                margin-top:fontSize(1);
 
                 $iconMargin:(iconSize(-.5) - fontSize(.3));
                 dt {
@@ -141,7 +154,9 @@
                     font-size:fontSize(.9);
 
                     &:after {
-                        content:'님이 좋아합니다.';
+                        margin-left:fontSize(.2);
+
+                        content:'좋아합니다.';
                     }
                 }
             }

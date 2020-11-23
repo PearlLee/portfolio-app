@@ -1,13 +1,17 @@
 import React from 'react';
+import SwiperCore, { Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { IconButton, Menu, MenuItem } from '@material-ui/core';
 import { MoreVert, Favorite } from '@material-ui/icons';
-import BlindText from './BlindText';
+import 'swiper/swiper.scss';
+import 'swiper/components/pagination/pagination.scss';
 import styles from './style/style.module.scss';
 import classNames from 'classnames/bind';
 
 const style = classNames.bind(styles);
 
 const cardOptions = ['modify', 'delete'];
+SwiperCore.use([Pagination]);
 
 export interface ICardProps {
   id: number;
@@ -35,8 +39,8 @@ function Card(props: ICardProps) {
       <article className={style('card')}>
         <header>
           <dl>
-            <dt>
-              <BlindText>writer</BlindText>
+            <dt aria-hidden="true" className={style('guideText')}>
+              writer
             </dt>
             <dd>{props.user_name}</dd>
             <dd>{props.created_at}</dd>
@@ -72,20 +76,29 @@ function Card(props: ICardProps) {
           </span>
         </header>
         <section className={style('content')}>
-          <span className={style('photo')}>
-            {props.medias.map((item, index) => (
-              <img key={index} src={item} alt="사진" />
-            ))}
-          </span>
+          {props.medias.length > 1 && (
+            <Swiper pagination={{ clickable: false }} spaceBetween={15} className={style('photo')}>
+              {props.medias.map((item, index) => (
+                <SwiperSlide key={index.toString()}>
+                  <img src={item} alt={'사진' + (index + 1)} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+          {props.medias.length <= 1 && (
+            <span className={style('photo')}>
+              <img src={props.medias[0]} alt="사진" />
+            </span>
+          )}
           <dl className={style('info')}>
-            <dt>
-              <BlindText>discription</BlindText>
+            <dt aria-hidden="true" className={style('guideText')}>
+              discription
             </dt>
             <dd>{props.message}</dd>
           </dl>
           <dl className={style('hashtags')}>
-            <dt>
-              <BlindText>hashtags</BlindText>
+            <dt aria-hidden="true" className={style('guideText')}>
+              hashtags
             </dt>
             <dd>
               <button>펭수</button>
@@ -94,18 +107,29 @@ function Card(props: ICardProps) {
           </dl>
           <dl className={style('like')}>
             <dt>
-              <BlindText>likes</BlindText>
-              <Favorite color="secondary" />
+              <Favorite color="secondary" aria-label="likes" />
             </dt>
             <dd>{props.likes}</dd>
-            {props.like_users.length > 0 && (
+            {props.like_users.length > 0 && props.like_users.length <= 3 && (
               <dd className={style('likeUsers')}>
                 {props.like_users.map((item, index) => (
-                  <span key={index}>
+                  <span key={index.toString()}>
                     {item}
-                    {index < item.length && ','}
+                    {index < props.like_users.length - 1 && ', '}
                   </span>
                 ))}
+                <span className={style('desc')}>님이</span>
+              </dd>
+            )}
+            {props.like_users.length > 3 && (
+              <dd className={style('likeUsers')}>
+                {props.like_users.slice(0, 3).map((item, index) => (
+                  <span key={index}>
+                    {item}
+                    {index < props.like_users.length - 1 && ', '}
+                  </span>
+                ))}
+                <span className={style('desc')}>님 외 {props.like_users.length - 3}명이</span>
               </dd>
             )}
           </dl>

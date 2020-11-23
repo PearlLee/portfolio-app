@@ -108,34 +108,39 @@ function Card(props: ICardProps) {
               <button>드루와</button>
             </dd>
           </dl>
-          <dl className={style('like')}>
-            <dt>
-              <Favorite color="secondary" aria-label="likes" />
-            </dt>
-            <dd>{props.likes}</dd>
+          <div className={style('like')}>
+            <button className={style('buttonLike')}>
+              <dl>
+                <dt>
+                  <Favorite color="secondary" aria-label="likes" />
+                </dt>
+                {props.like_users.length === 0 && <dd>마음을 찍어주세요</dd>}
+                {props.like_users.length > 0 && <dd>{props.likes}</dd>}
+              </dl>
+            </button>
             {props.like_users.length > 0 && props.like_users.length <= 3 && (
-              <dd className={style('likeUsers')}>
+              <p className="likeUsers">
                 {props.like_users.map((item, index) => (
                   <span key={index.toString()}>
                     {item}
                     {index < props.like_users.length - 1 && ', '}
                   </span>
                 ))}
-                <span className={style('desc')}>님이</span>
-              </dd>
+                <span>님이</span>
+              </p>
             )}
             {props.like_users.length > 3 && (
-              <dd className={style('likeUsers')}>
+              <p className="likeUsers">
                 {props.like_users.slice(0, 3).map((item, index) => (
                   <span key={index}>
                     {item}
                     {index < props.like_users.length - 1 && ', '}
                   </span>
                 ))}
-                <span className={style('desc')}>님 외 {props.like_users.length - 3}명이</span>
-              </dd>
+                <span>님 외 {props.like_users.length - 3}명이</span>
+              </p>
             )}
-          </dl>
+          </div>
         </section>
       </article>
     </>

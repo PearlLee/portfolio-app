@@ -111,14 +111,8 @@
 
             &.hashtags {
                 a, button {
+                    @extend .designedButton;
                     padding:.2em .5em;
-
-                    background-color:transparent;
-                    border:none;
-                    border-radius:1em;
-                    color:inherit;
-                    cursor:pointer;
-                    text-decoration:none;
 
                     &:before {
                         content:'#';
@@ -129,35 +123,51 @@
                     }
                 }
             }
+        }
 
-            &.like {
-                display:flex;
-                align-items:center;
-                flex-wrap:wrap;
-                justify-content:center;
-                position:relative;
-                margin-top:fontSize(1);
+        .like {
+            display:flex;
+            align-items:center;
+            flex-wrap:wrap;
+            justify-content:center;
+            position:relative;
+            margin-top:fontSize(1);
 
-                $iconMargin:(iconSize(-.5) - fontSize(.3));
-                dt {
-                    margin:0 fontSize(.3) 0 $iconMargin;
-                    
-                    & + dd {
-                        font-weight:700;
+            .buttonLike {
+                @extend .designedButton;
+                padding:fontSize(.5);
+
+                &:hover {
+                    background-color:lightgrey;
+                }
+
+                dl {
+                    display:flex;
+                    align-items:center;
+                    padding:0 0 0 (iconSize(.5) + fontSize(.3));
+
+                    $iconMargin:(iconSize(-.5) - fontSize(.3));
+                    dt {
+                        margin:0 fontSize(.3) 0 $iconMargin;
+                        
+                        & + dd {
+                            font-weight:700;
+                        }
                     }
                 }
-                dd.likeUsers {
-                    width:100%;
-                    margin-top:fontSize(.3);
+            }
 
-                    color:grey;
-                    font-size:fontSize(.9);
+            :global .likeUsers {
+                width:100%;
+                margin-top:fontSize(.3);
 
-                    &:after {
-                        margin-left:fontSize(.2);
+                color:grey;
+                font-size:fontSize(.9);
 
-                        content:'좋아합니다.';
-                    }
+                &:after {
+                    margin-left:fontSize(.2);
+
+                    content:'좋아합니다.';
                 }
             }
         }

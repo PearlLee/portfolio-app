@@ -114,8 +114,7 @@ function Card(props: ICardProps) {
                 <dt>
                   <Favorite color="secondary" aria-label="likes" />
                 </dt>
-                {props.like_users.length === 0 && <dd>마음을 찍어주세요</dd>}
-                {props.like_users.length > 0 && <dd>{props.likes}</dd>}
+                <dd className={props.like_users.length === 0 ? 'guideText' : ''}>{props.likes}</dd>
               </dl>
             </button>
             {props.like_users.length > 0 && props.like_users.length <= 3 && (

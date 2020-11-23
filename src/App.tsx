@@ -21,18 +21,20 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" style={{ width: '50px' }} />
       </header>
 
-      {data.map((item, index) => (
-        <Card
-          key={index}
-          id={item.id}
-          user_name={item.user_name}
-          message={item.message}
-          medias={item.medias}
-          like_users={item.like_users}
-          likes={item.likes}
-          created_at={item.created_at}
-        />
-      ))}
+      <section className="container">
+        {data.map((item, index) => (
+          <Card
+            key={index}
+            id={item.id}
+            user_name={item.user_name}
+            message={item.message}
+            medias={item.medias}
+            like_users={item.like_users}
+            likes={item.likes}
+            created_at={item.created_at}
+          />
+        ))}
+      </section>
     </div>
   );
 }

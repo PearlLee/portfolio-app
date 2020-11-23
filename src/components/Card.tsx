@@ -1,4 +1,5 @@
 import React from 'react';
+import Time from './Time';
 import SwiperCore, { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { IconButton, Menu, MenuItem } from '@material-ui/core';
@@ -43,7 +44,9 @@ function Card(props: ICardProps) {
               writer
             </dt>
             <dd>{props.user_name}</dd>
-            <dd>{props.created_at}</dd>
+            <dd>
+              <Time dateToFormat={props.created_at} />
+            </dd>
           </dl>
           <span className={style('menu')}>
             <IconButton

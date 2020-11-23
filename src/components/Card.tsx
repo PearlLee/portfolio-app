@@ -109,7 +109,7 @@ function Card(props: ICardProps) {
             </dd>
           </dl>
           <div className={style('like')}>
-            <button className={style('buttonLike')}>
+            <button className="buttonLike">
               <dl>
                 <dt>
                   <Favorite color="secondary" aria-label="likes" />

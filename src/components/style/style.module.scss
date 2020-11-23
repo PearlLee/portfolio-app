@@ -4,7 +4,7 @@
     font-weight:700;
 }
 
-:global .guideText[aria-hidden] {
+:global(.guideText[aria-hidden]) {
     position: absolute;
     left: -10000px;
     width: 1px;
@@ -89,7 +89,7 @@
                 margin-top:fontSize(1);
             }
 
-            :global .swiper-pagination-bullet-active {
+            :global(.swiper-pagination-bullet-active) {
                 background-color:white;
             }
         }
@@ -133,7 +133,7 @@
             position:relative;
             margin-top:fontSize(1);
 
-            .buttonLike {
+            :global(.buttonLike) {
                 @extend .designedButton;
                 padding:fontSize(.5);
 
@@ -157,7 +157,7 @@
                 }
             }
 
-            :global .likeUsers {
+            :global(.likeUsers) {
                 width:100%;
                 margin-top:fontSize(.3);
 

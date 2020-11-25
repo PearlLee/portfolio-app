@@ -19,6 +19,7 @@ export const primary = () => (
     like_users={['nori']}
     likes={0}
     created_at={'2020-11-16'}
+    tags={['tags']}
   />
 );
 primary.storyName = `기본`;

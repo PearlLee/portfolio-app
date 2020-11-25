@@ -22,6 +22,7 @@ export interface ICardProps {
   like_users: string[];
   likes: number;
   created_at: string;
+  tags: string[];
 }
 function Card(props: ICardProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -99,15 +100,18 @@ function Card(props: ICardProps) {
             </dt>
             <dd>{props.message}</dd>
           </dl>
-          <dl className={style('hashtags')}>
-            <dt aria-hidden="true" className={style('guideText')}>
-              hashtags
-            </dt>
-            <dd>
-              <button>펭수</button>
-              <button>드루와</button>
-            </dd>
-          </dl>
+          {props.tags.length > 0 && (
+            <dl className={style('hashtags')}>
+              <dt aria-hidden="true" className={style('guideText')}>
+                hashtags
+              </dt>
+              <dd>
+                {props.tags.map((tag, index) => (
+                  <button key={index}>{tag}</button>
+                ))}
+              </dd>
+            </dl>
+          )}
           <div className={style('like')}>
             <button className="buttonLike">
               <dl>

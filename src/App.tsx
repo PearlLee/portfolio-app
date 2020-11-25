@@ -31,6 +31,7 @@ function App() {
             medias={item.medias}
             like_users={item.like_users}
             likes={item.likes}
+            tags={item.tags}
             created_at={item.created_at}
           />
         ))}

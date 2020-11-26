@@ -144,11 +144,9 @@
                 dl {
                     display:flex;
                     align-items:center;
-                    padding:0 0 0 (iconSize(.5) + fontSize(.3));
-
-                    $iconMargin:(iconSize(-.5) - fontSize(.3));
+                    padding:0;
                     dt {
-                        margin:0 fontSize(.3) 0 $iconMargin;
+                        margin:0 fontSize(.3) 0 0;
                         
                         & + dd {
                             font-weight:700;

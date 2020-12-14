@@ -14,9 +14,14 @@ const style = classNames.bind(styles);
 const cardOptions = ['modify', 'delete'];
 SwiperCore.use([Pagination]);
 
+export interface ICardPropsUser {
+  name: string;
+  full_name: string;
+  profile_image: string;
+}
 export interface ICardProps {
   id: number;
-  user_name: string;
+  user: ICardPropsUser;
   message: string;
   medias: string[];
   like_users: string[];
@@ -44,7 +49,7 @@ function Card(props: ICardProps) {
             <dt aria-hidden="true" className={style('guideText')}>
               writer
             </dt>
-            <dd>{props.user_name}</dd>
+            <dd>{props.user.name}</dd>
             <dd>
               <Time dateToFormat={props.created_at} />
             </dd>

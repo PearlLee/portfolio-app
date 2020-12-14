@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get('/api/medias/');
+      const result = await axios.get('/api/timeline/');
       setData(result.data);
       console.log(result.data);
     };
@@ -26,7 +26,7 @@ function App() {
           <Card
             key={index.toString()}
             id={item.id}
-            user_name={item.user_name}
+            user={item.user}
             message={item.message}
             medias={item.medias}
             like_users={item.like_users}

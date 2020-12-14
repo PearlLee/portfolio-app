@@ -13,7 +13,7 @@ export const primary = () => (
   <Card
     key={0}
     id={0}
-    user_name={'noricube'}
+    user={{ name: 'noricube', full_name: 'Sukju Yun', profile_image: '' }}
     message={'hello world!'}
     medias={['https://economychosun.com/query/upload/322/20191103221129_fgyjnwts.jpg']}
     like_users={['nori']}
